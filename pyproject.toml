@@ -9,6 +9,6 @@ Repository = "https://github.com/throttlekitty/SDXLCustomAspectRatio"
 #  Used by Comfy Registry https://comfyregistry.org
 
 [tool.comfy]
-PublisherId = ""
+PublisherId = "throttlekitty"
 DisplayName = "SDXLCustomAspectRatio"
 Icon = ""
