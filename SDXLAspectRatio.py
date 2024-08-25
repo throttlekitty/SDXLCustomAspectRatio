@@ -1,5 +1,7 @@
 # quick node to set SDXL-friendly aspect ratios in 1024^2
 # by throttlekitty
+import re
+
 
 class SDXLAspectRatio:
     def __init__(self):
@@ -33,15 +35,15 @@ class SDXLAspectRatio:
     CATEGORY = "image"
 
     def SDXL_AspectRatio(self, width, height, aspectRatio):
-        # Try to get the width and height from the aspectRatio text
-        try:
-            for text in aspectRatio.lower().split(' '):
-                if 'x' in text:
-                    # We (probably) found the resolution part
-                    width, height = (int(x) for x in text.split('x'))
-                    break
-        finally:
-            return (width, height)
+        # Matches aspectRatio text on any number of digits, an x and any number of digits
+        pattern = r"(\d+)\s*x\s*(\d+)"
+        match = re.search(pattern, aspectRatio)
+    
+        if match:
+            width = int(match.group(1))
+            height = int(match.group(2))
+        
+        return width, height
 
             
 NODE_CLASS_MAPPINGS = {
