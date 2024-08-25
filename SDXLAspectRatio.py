@@ -36,7 +36,7 @@ class SDXLAspectRatio:
 
     def SDXL_AspectRatio(self, width, height, aspectRatio):
         # Matches aspectRatio text on any number of digits, an x and any number of digits
-        pattern = r"(\d+)\s*x\s*(\d+)"
+        pattern = r"(\d+)\s*[xX]\s*(\d+)"
         match = re.search(pattern, aspectRatio)
     
         if match:
